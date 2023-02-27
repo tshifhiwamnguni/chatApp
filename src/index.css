@@ -1,13 +1,122 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.me {
+  border: 1px solid gray;
+  color: white;
+  margin: 0.2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 0.5rem;
+  width: fit-content;
+  background-color: #005c4b;
+  width: fit-content;
+}
+
+.other {
+  border: 1px solid gray;
+  margin: 0.2rem;
+  background-color: #202c33;
+  color: white;
+  width: fit-content;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  padding: 0.5rem;
+}
+.chats {
+  display: flex;
+  align-items: right;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+  height:86.5%;
+  flex: 1;
+}
+.text {
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.input_group {
+  flex: 1;
+  width: 100%;
+  display: flex;
+
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+input {
+  height: 2.2rem;
+  width: 100%;
+  padding-left: 1rem;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-color: white;
+}
+.main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1;
+  height: 100vh;
+}
+button {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  background-color: white;
+  padding: 0.2rem;
+  align-items: center;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  
+}
+.icon {
+  font-size: 25.5px;
+  background-color: transparent;
+
+}
+.icon_back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25.5px;
+}
+
+.myText {
+  display: flex;
+  justify-content: right;
+}
+
+.head {
+  padding: .4rem;
+  color: white;
+  background-color: #202c33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_details {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-panel {
+  display: flex;
+  gap: 1rem;
+}
+.left-panel {
+  display: flex;
+  gap: 1rem;
 }
