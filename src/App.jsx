@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import "./App.css";
 import { RxPaperPlane } from "react-icons/rx";
 import { BiArrowBack } from "react-icons/bi";
-import { IoIosCall , IoIosSettings} from "react-icons/io";
+import { IoIosCall, IoIosSettings } from "react-icons/io";
 import { BsCameraVideoFill } from "react-icons/bs";
 import wp1 from "./assests/WP1.jpeg";
 
@@ -44,14 +44,18 @@ function App() {
     socket.emit("message", data);
   };
 
+
+  function  clearchagesHandler(){
+    setMessages([])
+  }
   return (
     <div className={`main`} style={{ backgroundImage: `url(${wp1})` }}>
       <div className="head">
         <div className="left-panel">
           <div className="icon_back">
-            <BiArrowBack  className="icon_back" />
+            <BiArrowBack className="icon_back" />
           </div>
-          
+
           <img src="" alt="" />
           <div className="user_details">
             <div>ANGEL</div>
@@ -59,12 +63,33 @@ function App() {
           </div>
         </div>
         <div className="right-panel">
-           <div><BsCameraVideoFill/></div>
-        <div> <IoIosCall/></div>
-        <div><IoIosSettings/>
+          <div>
+            <BsCameraVideoFill />
+          </div>
+          <div>
+            {" "}
+            <IoIosCall />
+          </div>
+          <div>
+            <div className="dropdown">
+              <button className="dropbtn">
+                <IoIosSettings />
+              </button>
+              <div className="dropdown-content">
+                <a href="#">Contact info</a>
+                <a href="#">Media, links, docs</a>
+                <a href="#">search</a>
+                <a href="#">Mute notification</a>
+                <a href="#">Disappearing messages</a>
+                <a href="#">wallpaper</a>
+                <a onClick={clearchagesHandler}> clear chats</a>
+                <a href="#">Report</a>
+                <a href="#">Block</a>
+                <a href="#">Export chats</a>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-       
       </div>
       <div className="chats">
         {messages.map((message, index) => (
