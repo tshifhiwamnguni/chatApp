@@ -44,9 +44,8 @@ function App() {
     socket.emit("message", data);
   };
 
-
-  function  clearchagesHandler(){
-    setMessages([])
+  function clearChatsHandler() {
+    setMessages([]);
   }
   return (
     <div className={`main`} style={{ backgroundImage: `url(${wp1})` }}>
@@ -55,7 +54,6 @@ function App() {
           <div className="icon_back">
             <BiArrowBack className="icon_back" />
           </div>
-
           <img src="" alt="" />
           <div className="user_details">
             <div>ANGEL</div>
@@ -82,7 +80,7 @@ function App() {
                 <a href="#">Mute notification</a>
                 <a href="#">Disappearing messages</a>
                 <a href="#">wallpaper</a>
-                <a onClick={clearchagesHandler}> clear chats</a>
+                <a onClick={clearChatsHandler}> clear chats</a>
                 <a href="#">Report</a>
                 <a href="#">Block</a>
                 <a href="#">Export chats</a>
