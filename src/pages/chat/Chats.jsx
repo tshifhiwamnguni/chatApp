@@ -43,16 +43,6 @@ function Chats() {
       socket.emit("message", data);
     };
 
-let arr = []
-
-function shaggy(ind){
-  arr[ind] = 'adbvkjasdvfavsfjlav '
-
-  console.log(arr);
-}
-
-
-
     return (
       <div className={`main`} style={{ backgroundImage: `url(${wp1})` }}>
         <ChatHead/>
@@ -60,7 +50,7 @@ function shaggy(ind){
         <div className="input_group">
           <input type="text" onChange={(e) => setText(e.target.value)} />
   
-          <button onClick={() => shaggy(' kjdsbkjlbdklag')}>
+          <button onClick={() => sendMessage(text)}>
             {" "}
             <RxPaperPlane className="icon" />
           </button>
