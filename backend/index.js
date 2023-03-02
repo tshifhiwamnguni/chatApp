@@ -42,8 +42,16 @@ io.on('connection', (socket) => {
   
     socket.on('message', (data) => {
       console.log('Received message:', data);
-      io.emit('message', data);
-    });
+      io.to(3).emit('message', data);
+     });
+  //   socket.on('message', (message) => {
+  //     console.log(message + socket.id);
+  //     // if (recipient === 'group') {
+  //     //   io.emit('new message', message);
+  //     // } else {
+  //       socket.to(3).emit('message', message);
+  //    //
+  //   });
   });
   
   const PORT = 3001;

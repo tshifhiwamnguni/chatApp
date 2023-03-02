@@ -10,9 +10,10 @@ function Chats() {
     const [socket, setSocket] = useState(null);
     const [text, setText] = useState();
     const [id, setId] = useState();
-  
+    const [myId, setMyId] = useState();
     useEffect(() => {
-      setId(parseInt(1 + Math.random() * (10 - 1)));
+      setMyId(3)
+      setId(localStorage.getItem('id'));
   
       const newSocket = io("http://localhost:3001");
   
@@ -30,29 +31,36 @@ function Chats() {
         newSocket.disconnect();
       };
     }, []);
-  
+    console.log('my id ' ,myId);
+  console.log('other id ' , id);
     const sendMessage = (txt) => {
       console.log("message ", text, " id ", id);
       let data = {
-        id: id,
+        id: 3,
         message: txt,
       };
       console.log(messages);
-  
       socket.emit("message", data);
     };
-  
-    // function clearChatsHandler() {
-    //   setMessages([]);
-    // }
+
+let arr = []
+
+function shaggy(ind){
+  arr[ind] = 'adbvkjasdvfavsfjlav '
+
+  console.log(arr);
+}
+
+
+
     return (
       <div className={`main`} style={{ backgroundImage: `url(${wp1})` }}>
         <ChatHead/>
-       <ChatsComponent message={messages} id={id}/>
+       <ChatsComponent message={messages} id={myId}/>
         <div className="input_group">
           <input type="text" onChange={(e) => setText(e.target.value)} />
   
-          <button onClick={() => sendMessage(text)}>
+          <button onClick={() => shaggy(' kjdsbkjlbdklag')}>
             {" "}
             <RxPaperPlane className="icon" />
           </button>

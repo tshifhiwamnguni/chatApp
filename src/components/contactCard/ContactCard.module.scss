@@ -1,0 +1,19 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+ padding: 0 .6rem;
+ align-items: center;
+ margin: .5rem;
+ height: 4rem;
+ color: white;
+}
+.details{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+   .detail{
+    display: flex;
+    flex-direction: column;
+    
+   }
+}
