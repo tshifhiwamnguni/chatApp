@@ -5,7 +5,7 @@ import { BsCameraVideoFill } from "react-icons/bs";
 import second from './../../assests/WP1.jpeg'
 import SettingsDropdown from "../settingsDropdown/SettingsDropdown";
 import {useNavigate} from 'react-router-dom'
-
+import classes from './Chathead.module.scss'
 function ChatHead() {
 
 const [name , setName] = useState()
@@ -24,18 +24,18 @@ const [id , setId] = useState()
     }
 
   return (
-    <div className="head">
-          <div className="left-panel">
-            <div className="icon_back"onClick={back}>
-              <BiArrowBack className="icon_back"  />
+    <div className={classes.head}>
+          <div className={classes.left_panel}>
+            <div className={classes.icon_back} onClick={back}>
+              <BiArrowBack className={classes.icon_back}  />
             </div>
             <img src={second} alt="" />
-            <div className="user_details">
+            <div className={classes.user_details}>
               <div>{name}</div>
               <div>online</div>
             </div>
           </div>
-          <div className="right-panel">
+          <div className={classes.right_panel}>
             <div>
               <BsCameraVideoFill />
             </div>

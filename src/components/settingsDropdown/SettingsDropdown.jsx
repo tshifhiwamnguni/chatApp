@@ -1,16 +1,17 @@
 import React from 'react'
 import {IoIosSettings } from "react-icons/io";
+import classes from './SettingsDropdown.module.scss'
 function SettingsDropdown() {
 
     function clearChatsHandler() {
         // setMessages([]);
       }
   return (
-    <div className="dropdown">
-    <button className="dropbtn">
+    <div className={classes.dropdown}>
+    <button className={classes.dropbtn}>
       <IoIosSettings />
     </button>
-    <div className="dropdown-content">
+    <div className={classes.dropdown_content}>
       <div className='a'>Contact info</div>
       <div className='a'>Media, links, docs</div>
       <div className='a'>search</div>

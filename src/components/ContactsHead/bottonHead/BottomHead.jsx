@@ -1,11 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import classes from './BottomHead.module.scss'
+
 function BottomHead() {
   return (
     <div className={classes.main}>
-      <div className={`${classes.tab} ${classes.active}`}>chats</div>
-      <div className={classes.tab}>status</div>
-      <div className={classes.tab}>calls</div>
+      <NavLink className={`${classes.tab} ${classes.active}`} style={{ textDecoration: "none", color: "white" }}>chats</NavLink>
+      <NavLink className={classes.tab} style={{ textDecoration: "none", color: "white" }} to='/status'>status</NavLink>
+      <NavLink className={classes.tab} style={{ textDecoration: "none", color: "white" }}>calls</NavLink>
     </div>
   )
 }

@@ -1,0 +1,27 @@
+.head {
+    padding: .4rem;
+    color: white;
+    background-color: #202c33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user_details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .right_panel {
+    display: flex;
+    gap: 1rem;
+  }
+  .left_panel {
+    display: flex;
+    gap: 1rem;
+  }
+  .icon_back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25.5px;
+  }
