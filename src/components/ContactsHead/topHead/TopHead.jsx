@@ -17,7 +17,7 @@ function TopHead() {
                 <HiOutlineSearch className={classes.icon}/>
             </div>
             <div>
-            <IoIosSettings  className={classes.icon}/>
+              <IoIosSettings  className={classes.icon}/>
             </div>
         </div>
 

@@ -1,0 +1,8 @@
+POST http://localhost:3232/api/post
+content-type: application/json
+
+
+{
+    "name": "sample",
+    "age": "12"
+}

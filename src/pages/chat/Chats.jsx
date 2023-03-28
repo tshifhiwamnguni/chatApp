@@ -17,7 +17,6 @@ function Chats() {
 
 
   const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
   const [text, setText] = useState();
   const [id, setId] = useState();
 
@@ -33,7 +32,6 @@ const sendMessage = (txt) => {
   };
   console.log(messages);
 
-  socket.emit("message", data);
 };
 
   return (

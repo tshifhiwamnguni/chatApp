@@ -14,8 +14,7 @@ const [id , setId] = useState()
         setName(localStorage.getItem('name'));
         setId(localStorage.getItem('id'));
     },[])
-    console.log(name);
-    console.log(id);
+  
   
     const navigate = useNavigate()
 
