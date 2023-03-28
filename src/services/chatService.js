@@ -10,8 +10,11 @@ export const postMessage = async (body) => {
 
 
 export const getMessages = async (body) => {
-    console.log(body);
-    const data  = await axios.get(URL+'allMessages',body);
+    console.log('body; ',body);
+    let chatID = {
+        chatID: body.chatID
+    }
+    const data  = await axios.post(URL+'allMessages',chatID);
     return data;
 }
 

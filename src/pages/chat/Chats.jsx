@@ -19,10 +19,13 @@ function Chats() {
   let {id} = useParams();
 useEffect(()=>{
   setRecieverID(id)
-  let chatID = {chatID: "642287bc72edfa2a1b27320elunachat1"}
-  getMessages(chatID).then(
+  let data = {
+    "chatID": "642287bc72edfa2a1b27320elunachat1"
+  }
+  getMessages(data).then(
     (data)=>{
       console.log(data);
+      setMessages(data.data)
     }
   )
 

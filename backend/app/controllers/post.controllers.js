@@ -28,11 +28,12 @@ module.exports.postMessage = async (req, res) => {
 
 
 module.exports.getAllMessages = async (req, res) => {
-    const { chatID } = req.body;
+    const  {chatID} = req.body;
+console.log(23456);
+  console.log('mmm ,;"' , chatID);
 
-  
     try {
-      const data = await Model.findOne({ chatID: chatID});
+      const data = await Model.find({ chatID: chatID});
   
       res.status(200).json(data);
     } catch (error) {

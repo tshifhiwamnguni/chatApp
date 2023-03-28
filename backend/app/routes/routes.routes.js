@@ -11,7 +11,7 @@ app.post('/register', auth.register)
 
 //messsages
 app.post('/post', postController.postMessage)
-app.get('/allMessages',postController.getAllMessages)
+app.post('/allMessages',postController.getAllMessages)
 
 
 module.exports =  app

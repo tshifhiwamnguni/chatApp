@@ -20,8 +20,8 @@ function ChatsComponent(props) {
             <div
               key={index}
             >
-              <div className={localStorage.getItem("id") !== message.sender ? `${classes.me}`: `${classes.other}`}>
-                <span className="text">{message.message} </span>{" "}
+              <div className={localStorage.getItem("id") === message.sender ? `${classes.me}`: `${classes.other}`}>
+                <span className="text">{message.message}</span>{" "}
               </div>
             </div>
           ))}
