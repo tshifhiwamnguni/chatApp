@@ -1,0 +1,32 @@
+.formGroup{
+    color: white;
+    width: 70%;
+
+ text-align: center;
+ button{
+    margin: 1rem;
+    width: 5rem;
+    height: 2rem;
+    border-radius: .5rem;
+ }
+ input{
+    border-radius: .5rem;
+ }
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+
+    
+    border-radius: .5rem;
+    height: 40%;
+}
+
+.main{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1rem;
+
+}

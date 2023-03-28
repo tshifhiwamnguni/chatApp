@@ -3,13 +3,16 @@ const app = express();
 const Model = require("../models/user.model");
 
 
-module.exports.addRequest = async (req, res) => {
+module.exports.postMessage = async (req, res) => {
 
-    const { name, age } = req.body;
-    console.log(name, age);
+    const { chatID, sender, reciever, message } = req.body;
+
     const data = new Model({
-        name: req.body.name,
-        age: req.body.age
+        chatID: chatID,
+        sender: sender,
+        reciever: reciever,
+        message: message
+
     })
 
     try {

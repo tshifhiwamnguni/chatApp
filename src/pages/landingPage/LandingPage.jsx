@@ -11,8 +11,7 @@ useEffect(()=>{
 
 function load (){
     setTimeout(()=>{
-        navigate('/contacts')
-        console.log(2);
+        navigate('/login')
       },2000)
 }
 
