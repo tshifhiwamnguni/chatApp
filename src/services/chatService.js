@@ -7,3 +7,11 @@ export const postMessage = async (body) => {
     const data  = await axios.post(URL+'post',body);
     return data;
 }
+
+
+export const getMessages = async (body) => {
+    console.log(body);
+    const data  = await axios.get(URL+'allMessages',body);
+    return data;
+}
+

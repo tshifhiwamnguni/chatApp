@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const Model = require("../models/user.model");
+const Model = require("../models/chat.model");
 
 
 module.exports.postMessage = async (req, res) => {
@@ -25,3 +25,17 @@ module.exports.postMessage = async (req, res) => {
     }
 
 };
+
+
+module.exports.getAllMessages = async (req, res) => {
+    const { chatID } = req.body;
+
+  
+    try {
+      const data = await Model.findOne({ chatID: chatID});
+  
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };

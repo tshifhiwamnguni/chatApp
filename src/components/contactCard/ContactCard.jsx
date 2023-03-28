@@ -9,8 +9,6 @@ function ContactCard(props) {
   function toChat(data){
    
       navigate(`/chats/${data.id}`)
-      localStorage.setItem('name', data.username)
-      localStorage.setItem('id', data.id)
   }
 
   return (

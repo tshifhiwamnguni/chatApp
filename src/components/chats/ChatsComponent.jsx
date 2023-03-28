@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+
 import classes  from  './ChatsComponent.module.scss'
+
+
+
+
 function ChatsComponent(props) {
+
+  const [messages, setMessages] = useState([])
+  useEffect(() => {
+
+  setMessages(props.message)
+  }, [props.message])
+ 
   return (
     <div className={classes.chats}>
-          {props.message.map((message, index) => (
+          {messages.map((message, index) => (
             <div
-              className={parseInt(message.id)=== parseInt(props.id) ? "classes.myText" : "classes.otherText"}
               key={index}
             >
-              <div className={parseInt(message.id) === parseInt(props.id) ? "classes.me" : "classes.other"}>
-                <span className="text">{message.message}</span>{" "}
+              <div className={localStorage.getItem("id") !== message.sender ? `${classes.me}`: `${classes.other}`}>
+                <span className="text">{message.message} </span>{" "}
               </div>
             </div>
           ))}

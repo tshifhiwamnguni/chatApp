@@ -15,8 +15,9 @@ function LoginForm() {
   }
     login(body).then(
       (data)=>{
-        console.log(data);
+        console.log(data.data._id);
         if(data.data){
+          localStorage.setItem('id',data.data._id)
           navigate('/contacts')
         }
         else{

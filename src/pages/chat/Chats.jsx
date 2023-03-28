@@ -5,32 +5,47 @@ import wp1 from "../../assests/WP1.jpeg";
 import ChatHead from "../../components/chatHead/ChatHead";
 import ChatsComponent from "../../components/chats/ChatsComponent";
 import React, { useEffect, useState } from "react";
+import {  useParams } from 'react-router-dom';
+import { postMessage,getMessages } from "../../services/chatService";
 
-
-
-import { BiArrowBack } from "react-icons/bi";
-import { IoIosCall, IoIosSettings } from "react-icons/io";
-import { BsCameraVideoFill } from "react-icons/bs";
 import classes from './Chats.module.scss'
 
 function Chats() {
-
+ 
 
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState();
-  const [id, setId] = useState();
+  const [recieverID, setRecieverID] = useState();
+  let {id} = useParams();
+useEffect(()=>{
+  setRecieverID(id)
+  let chatID = {chatID: "642287bc72edfa2a1b27320elunachat1"}
+  getMessages(chatID).then(
+    (data)=>{
+      console.log(data);
+    }
+  )
 
-function clearChatsHandler() {
-  setMessages([]);
-}
+},[])
 
-const sendMessage = (txt) => {
-  console.log("message ", text, " id ", id);
+
+const sendMessage = () => {
+ 
   let data = {
-    id: id,
-    message: txt,
+    chatID:"642287bc72edfa2a1b27320elunachat1",
+    sender: localStorage.getItem('id'),
+    reciever: recieverID,
+    message: text
   };
-  console.log(messages);
+
+  postMessage(data).then(
+    (data)=>{
+      console.log(data);
+    }
+  )
+  console.log(data);
+  setMessages([...messages, data])
+  // console.log(messages);
 
 };
 
@@ -42,7 +57,7 @@ const sendMessage = (txt) => {
     </div>
     <div className={classes.input_group}>
       <input type="text" onChange={(e) => setText(e.target.value)} />
-      <button onClick={() => sendMessage(text)}>
+      <button onClick={() => sendMessage()}>
         <RxPaperPlane className={classes.icon} />
       </button>
     </div>
