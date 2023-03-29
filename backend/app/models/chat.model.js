@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// this will house all the chats
 const dataSchema = new mongoose.Schema({
     chatID: {
         required: true,
@@ -17,8 +17,6 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    
-    
     
 })
 

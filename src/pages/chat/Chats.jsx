@@ -7,9 +7,9 @@ import ChatsComponent from "../../components/chats/ChatsComponent";
 import React, { useEffect, useState } from "react";
 import {  useParams } from 'react-router-dom';
 import { postMessage,getMessages } from "../../services/chatService";
-
 import classes from './Chats.module.scss'
 
+const socket = io.connect('http://localhost:3002/')
 function Chats() {
  
 

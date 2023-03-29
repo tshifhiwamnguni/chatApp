@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const app = express();
-require('dotenv').config();
-const routes = require('./app/routes/routes.routes');
+require("dotenv").config();
+const routes = require("./app/routes/routes.routes");
 
+//cors options
 const corsMethod = {
   origin: "*",
   methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
@@ -19,28 +20,22 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 
-
-
 ///use toutes
-app.use('/api', routes)
-app.get('/',(req, res)=>{
-  res.status(200).json({message: "yes"})
-  console.log('yes');
-})
+app.use("/api", routes);
 
-///database connection 
-
+///database connection
 mongoose.connect(process.env.DB);
-const database = mongoose.connection
-database.on('error', (error) => {
-  console.log(error)
-})
-database.once('connected', () => {
-  console.log('Database Connected');
-})
+const database = mongoose.connection;
+database.on("error", (error) => {
+  console.log(error);
+});
+
+database.once("connected", () => {
+  console.log("Database Connected");
+});
 
 //run sever
-const port =  process.env.PORT|| 3002;
+const port = process.env.PORT || 3002;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
