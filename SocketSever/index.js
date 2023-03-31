@@ -1,33 +1,33 @@
 
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const cors = require("cors");
-require("dotenv").config();
-//cors options
-const corsMethod = {
-  origin: "http://localhost:3000",
-  methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
-};
 
-//socket
+const express = require('express');
 const http = require('http');
+const socketIO = require('socket.io');
+const cors = require('cors');
+const app = express();
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(corsMethod);
+const PORT = process.env.PORT || 3002;
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:3000",
+  }});
 
-app.use(cors)
-//socket initialize 
+
+
 io.on('connection', (socket) => {
-    console.log("socekt ,", socket.id);
+  console.log(`User ${socket.id} connected`);
 
-    socket.on('disconnect',()=>{
-        console.log('disconnected at ', socket.id);
-    })
+  socket.on('disconnect', () => {
+    console.log(`User ${socket.id} disconnected`);
+  });
+
+  socket.on('chat message', (msg) => {
+    console.log(`User ${socket.id} sent message: ${msg.message}`);
+    io.emit('chat message', msg);
+  });
 });
 
-//run sever
-const port = process.env.PORT || 3002;
-server.listen(port, () => {
-  console.log(`socket server listening on port ${port}`);
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
+

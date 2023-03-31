@@ -5,66 +5,81 @@ import wp1 from "../../assests/WP1.jpeg";
 import ChatHead from "../../components/chatHead/ChatHead";
 import ChatsComponent from "../../components/chats/ChatsComponent";
 import React, { useEffect, useState } from "react";
-import {  useParams } from 'react-router-dom';
-import { postMessage,getMessages } from "../../services/chatService";
+import { useParams } from 'react-router-dom';
+import { postMessage, getMessages } from "../../services/chatService";
 import classes from './Chats.module.scss'
 
-const socket = io.connect('http://localhost:3002/')
-function Chats() {
- 
+const socket = io('http://localhost:3002')
 
+
+function Chats() {
+
+
+
+ //states
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState();
   const [recieverID, setRecieverID] = useState();
-  let {id} = useParams();
-useEffect(()=>{
-  setRecieverID(id)
-  let data = {
-    "chatID": "642287bc72edfa2a1b27320elunachat1"
-  }
-  getMessages(data).then(
-    (data)=>{
-      console.log(data);
-      setMessages(data.data)
+
+  //variables
+  let { id } = useParams();
+
+
+
+  useEffect(() => {
+
+    socket.on("connection", () => {
+      console.log('Connected to server');
+    });
+    
+    setRecieverID(id)
+    let data = {
+      "chatID": "642287bc72edfa2a1b27320elunachat1"
     }
-  )
+    getMessages(data).then(
+      (data) => {
+        console.log(data);
+        setMessages(data.data)
+      }
+    )
 
-},[])
+  }, [])
 
 
-const sendMessage = () => {
- 
-  let data = {
-    chatID:"642287bc72edfa2a1b27320elunachat1",
-    sender: localStorage.getItem('id'),
-    reciever: recieverID,
-    message: text
+  const sendMessage = () => {
+
+    let data = {
+      chatID: "642287bc72edfa2a1b27320elunachat1",
+      sender: localStorage.getItem('id'),
+      reciever: recieverID,
+      message: text
+    };
+
+    // postMessage(data).then(
+    //   (data) => {
+    //     console.log(data);
+    //   }
+    // )
+    socket.emit('chat message', data);
+    console.log(data);
+    setMessages([...messages, data])
+    // console.log(messages);
+
   };
-
-  postMessage(data).then(
-    (data)=>{
-      console.log(data);
-    }
-  )
-  console.log(data);
-  setMessages([...messages, data])
-  // console.log(messages);
-
-};
 
   return (
     <div className={classes.main} style={{ backgroundImage: `url(${wp1})` }}>
-    <ChatHead/>
-    <div className={classes.chats}>
-      <ChatsComponent  message={messages}/>
+      <ChatHead />
+      <div className={classes.chats}>
+        <ChatsComponent message={messages} />
+      </div>
+      <div className={classes.input_group}>
+        <input type="text" onChange={(e) => setText(e.target.value)} />
+        <button onClick={() => sendMessage()}>
+          <RxPaperPlane className={classes.icon} />
+        </button>
+      </div>
     </div>
-    <div className={classes.input_group}>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
-      <button onClick={() => sendMessage()}>
-        <RxPaperPlane className={classes.icon} />
-      </button>
-    </div>
-  </div>
 
   );
 }
