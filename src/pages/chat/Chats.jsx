@@ -27,13 +27,7 @@ function clearChatsHandler() {
 
 const sendMessage = (txt) => {
   console.log("message ", text, " id ", id);
-  let data = {
-    id: id,
-    message: txt,
-  };
-  console.log(messages);
 
-  socket.emit("message", data);
 };
 
   return (
