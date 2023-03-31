@@ -7,10 +7,9 @@ function ContactCard(props) {
   const navigate = useNavigate()
 
   function toChat(data){
-   
+    console.log("data", data);
+    localStorage.setItem('name', data.username)
       navigate(`/chats/${data.id}`)
-      localStorage.setItem('name', data.username)
-      localStorage.setItem('id', data.id)
   }
 
   return (

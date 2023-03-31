@@ -5,20 +5,19 @@
     background-color: #202c33;
 }
 .tab{
-    color: white;
-    border: none;
+  
+
     width: 100%;
     text-align: center;
     height: 2rem;
     display: flex;
     justify-content: center;
-   align-items: center;
+    
 }
 
 .active{
+    text-align: center;
+
     border-bottom: .35rem solid greenyellow;
 }
 
-.active{
-    border-bottom: .35rem solid greenyellow;
-  }

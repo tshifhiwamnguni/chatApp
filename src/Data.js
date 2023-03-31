@@ -1,11 +1,11 @@
 export const contacts = [
     {
-        id: 1,
-        username:'brandon',
+        id: "6423456881645ab0cb3b7d2f",
+        username:'lola',
     },
     {
-        id: 2,
-        username:'shaggy',
+        id: "642287bc72edfa2a1b27320e",
+        username:'brandon',
     },
     {
         id: 3,
@@ -15,9 +15,6 @@ export const contacts = [
         id: 4,
         username:'kgopotso',
     },
-    {
-        id: 5,
-        username:'lola',
-    },
+    
 ]
  
