@@ -21,9 +21,14 @@ io.on('connection', (socket) => {
     console.log(`User ${socket.id} disconnected`);
   });
 
-  socket.on('chat message', (msg) => {
-    console.log(`User ${socket.id} sent message: ${msg.message}`);
-    io.emit('chat message', msg);
+  socket.on("join",(data)=>{
+      socket.join(data)
+      console.log("room: " ,data);
+  })
+
+  socket.on('chat message', (data) => {
+    console.log(`User ${socket.id} sent message: ${data.message} on room: ${data.room}`);
+    io.to(data.room).emit('chat message', data);
   });
 });
 

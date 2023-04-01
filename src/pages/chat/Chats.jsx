@@ -31,6 +31,8 @@ function Chats() {
     socket.on("connection", () => {
       console.log('Connected to server');
     });
+
+    socket.emit("join", "642287bc72edfa2a1b27320elunachat1")
     
     setRecieverID(id)
     let data = {
@@ -46,10 +48,19 @@ function Chats() {
   }, [])
 
 
-  const sendMessage = () => {
+  useEffect(()=>{
+      socket.on('chat message',(data)=>{
+        // setMessages([...messages, data])
+        messages.push(data)
+        console.table(data);
+        console.log("array: ",messages);
+      })
+  },[socket])
+
+  const sendMessage = async() => {
 
     let data = {
-      chatID: "642287bc72edfa2a1b27320elunachat1",
+      room: "642287bc72edfa2a1b27320elunachat1",
       sender: localStorage.getItem('id'),
       reciever: recieverID,
       message: text
@@ -60,9 +71,12 @@ function Chats() {
     //     console.log(data);
     //   }
     // )
-    socket.emit('chat message', data);
+    await socket.emit('chat message', data);
     console.log(data);
-    setMessages([...messages, data])
+    if(text !== ""){
+      setMessages([...messages, data])
+    }
+    
     // console.log(messages);
 
   };
