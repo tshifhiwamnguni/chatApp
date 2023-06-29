@@ -11,7 +11,7 @@ function ChatsComponent(props) {
   const [messages, setMessages] = useState([])
   useEffect(() => {
 
-  setMessages(props.message)
+    setMessages(props.message)
   }, [props.message])
  
   return (

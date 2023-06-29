@@ -29,8 +29,8 @@ module.exports.postMessage = async (req, res) => {
 
 module.exports.getAllMessages = async (req, res) => {
     const  {chatID} = req.body;
-console.log(23456);
-  console.log('mmm ,;"' , chatID);
+// console.log(23456);
+  // console.log('mmm ,;"' , chatID);
 
     try {
       const data = await Model.find({ chatID: chatID});

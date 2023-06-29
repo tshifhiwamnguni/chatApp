@@ -50,7 +50,8 @@ function Chats() {
 
   useEffect(()=>{
       socket.on('chat message',(data)=>{
-        // setMessages([...messages, data])
+        
+        setMessages([...messages, data])
         messages.push(data)
         console.table(data);
         console.log("array: ",messages);
